@@ -1,14 +1,32 @@
 # lib-ilham
 
-This template should help get you started developing with Vue 3 in Vite.
+STRUKTUR FOLDER SISTEM MANAJEMEN PERPUSTAKAAN
+📁 src/
+├── 📁 components/
+│   ├── Header.vue
+│   ├── Sidebar.vue
+│   └── Footer.vue
+├── 📁 views/
+│   ├── Home.vue
+│   ├── Login.vue
+│   ├── 📁 books/
+│   │   ├── Books.vue
+│   │   ├── AddBook.vue
+│   │   └── EditBook.vue  
+│   ├── 📁 Layouts/
+│   │   ├── MembersLayout.vue
+│   │   └── BookLayout.vue      
+│   ├── 📁 members/
+│   │   ├── Members.vue
+│   │   ├── AddMembers.vue
+│   │   └── EditMembers.vue
+│   ├── Transactions.vue
+│   └── Reports.vue
+├── 📁 router/
+│   └── index.js
+├── App.vue
+└── main.js
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
 
 ## Project Setup
 
