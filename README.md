@@ -1,33 +1,5 @@
 # lib-ilham
 
-STRUKTUR FOLDER SISTEM MANAJEMEN PERPUSTAKAAN
-📁 src/
-├── 📁 components/
-│   ├── Header.vue
-│   ├── Sidebar.vue
-│   └── Footer.vue
-├── 📁 views/
-│   ├── Home.vue
-│   ├── Login.vue
-│   ├── 📁 books/
-│   │   ├── Books.vue
-│   │   ├── AddBook.vue
-│   │   └── EditBook.vue  
-│   ├── 📁 Layouts/
-│   │   ├── MembersLayout.vue
-│   │   └── BookLayout.vue      
-│   ├── 📁 members/
-│   │   ├── Members.vue
-│   │   ├── AddMembers.vue
-│   │   └── EditMembers.vue
-│   ├── Transactions.vue
-│   └── Reports.vue
-├── 📁 router/
-│   └── index.js
-├── App.vue
-└── main.js
-
-
 ## Project Setup
 
 ```sh
