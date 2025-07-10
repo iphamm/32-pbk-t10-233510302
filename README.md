@@ -1,53 +1,134 @@
-# lib-ilham
+# 📚 Sistem Manajemen Perpustakaan
 
-STRUKTUR FOLDER SISTEM MANAJEMEN PERPUSTAKAAN
-📁 src/
-├── 📁 components/
-│   ├── Header.vue
-│   ├── Sidebar.vue
-│   └── Footer.vue
-├── 📁 views/
-│   ├── Home.vue
-│   ├── Login.vue
-│   ├── 📁 books/
-│   │   ├── Books.vue
-│   │   ├── AddBook.vue
-│   │   └── EditBook.vue  
-│   ├── 📁 Layouts/
-│   │   ├── MembersLayout.vue
-│   │   └── BookLayout.vue      
-│   ├── 📁 members/
-│   │   ├── Members.vue
-│   │   ├── AddMembers.vue
-│   │   └── EditMembers.vue
-│   ├── Transactions.vue
-│   └── Reports.vue
-├── 📁 router/
-│   └── index.js
-├── App.vue
-└── main.js
+Aplikasi web ini adalah Sistem Manajemen Perpustakaan yang dikembangkan menggunakan **Vue 3**, **Vue Router**, **Pinia** untuk manajemen state, dan **Vuetify** sebagai framework UI. Data dikelola menggunakan **json-server** untuk simulasi API backend. Proyek ini juga dilengkapi dengan **unit testing menggunakan Vitest**.
 
+---
 
-## Project Setup
+## 📝 Deskripsi Proyek
 
-```sh
+Sistem ini dirancang untuk membantu staf perpustakaan dalam mengelola operasional sehari-hari, termasuk manajemen data **buku**, **anggota**, dan **transaksi peminjaman/pengembalian buku**.
+
+---
+
+## ✨ Fitur Utama
+
+### 🔐 Autentikasi Pengguna
+- Sistem login untuk staf perpustakaan.
+
+### 📚 Manajemen Buku
+- Melihat daftar semua buku.
+- Menambah buku baru ke inventaris.
+- Mengedit informasi detail buku yang sudah ada.
+- Menghapus buku dari inventaris.
+
+### 👥 Manajemen Anggota
+- Melihat daftar anggota perpustakaan.
+- Menambah anggota baru.
+- Mengedit informasi anggota yang sudah terdaftar.
+- Menghapus data anggota.
+
+### 🔄 Manajemen Transaksi
+- Melihat riwayat peminjaman buku.
+- Mencatat peminjaman buku baru.
+- Mencatat pengembalian buku .
+
+### 📊 Laporan
+- Laporan Peminjaman.
+- Laporan Ketersediaan Buku.
+
+### 🧮 Dashboard
+- Ringkasan statistik penting perpustakaan.
+
+---
+
+## 🛠️ Teknologi yang Digunakan
+
+### Frontend
+- Vue.js 3
+- Vue Router 4
+- Pinia
+- Vuetify 3
+
+### Backend (Simulasi)
+- json-server
+
+### Pengujian
+- Vitest
+- @vue/test-utils
+
+### Build Tool
+- Vite
+
+### Lain-lain
+- ESLint
+- Prettier
+
+---
+
+## 🚀 Instalasi & Menjalankan Proyek
+
+Ikuti langkah-langkah di bawah ini untuk mengatur dan menjalankan proyek di lingkungan lokal Anda.
+
+### 1. Klon Repository
+
+```bash
+git clone <URL_REPOSITORY>
+cd nama-folder-proyek 
+```
+
+### 2. Instal Dependensi
+
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 3. Instal json-server (Global)
 
-```sh
+Pastikan `json-server` terinstal secara global. Jika belum:
+
+```bash
+npm install -g json-server
+```
+
+### 4. Jalankan API Backend Simulasi
+
+```bash
+npm run json-server
+```
+
+> Server API akan berjalan di [http://localhost:3000](http://localhost:3000)
+
+### 5. Jalankan Aplikasi Frontend Vue.js
+
+Buka terminal lain dan jalankan:
+
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
+> Aplikasi akan tersedia di [http://localhost:5173](http://localhost:5173) _(atau port lain yang tersedia)_.
 
-```sh
-npm run build
+---
+
+## 🔑 Kredensial Login
+
+Gunakan kredensial berikut untuk masuk ke sistem:
+
+- **Username**: `admin`  
+- **Password**: `password123`
+
+---
+
+## 🧪 Menjalankan Unit Tests
+
+Untuk menjalankan unit tests:
+
+```bash
+npm run test
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+---
 
-```sh
-npm run lint
-```
+## 🤝 Kontribusi
+
+Proyek ini adalah bagian dari **Tugas Besar/UAS** saya, **M. ILHAM RAMADHANA** pada Mata Kuliah **Pemrograman Berbasis Komponen**. Kontribusi umum tidak diharapkan, namun **saran untuk perbaikan selalu diterima**.
