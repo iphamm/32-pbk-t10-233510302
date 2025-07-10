@@ -1,0 +1,89 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "title": "Harry Potter and the Sorcerer's Stone",
+      "author": "J.K. Rowling",
+      "isbn": "978-0439708180",
+      "publishedYear": 1997,
+      "stock": 5,
+      "available": 5 
+    },
+    {
+      "id": "2",
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "isbn": "978-0345339683",
+      "publishedYear": 1937,
+      "stock": 3,
+      "available": 3
+    },
+    {
+      "id": "3",
+      "title": "The Lord of the Rings",
+      "author": "J.R.R. Tolkien",
+      "isbn": "978-0618053267",
+      "publishedYear": 1954,
+      "stock": 7,
+      "available": 7
+    },
+    {
+      "id": "4",
+      "title": "1984",
+      "author": "George Orwell",
+      "isbn": "978-0451524935",
+      "publishedYear": 1949,
+      "stock": 2,
+      "available": 2
+    }
+],
+  "members": [
+    {
+      "id": "1",
+      "name": "Budi Santoso",
+      "email": "budi@example.com",
+      "phone": "081234567890",
+      "address": "Jl. Merdeka No. 10"
+    },
+    {
+      "id": "2",
+      "name": "Siti Aminah",
+      "email": "siti@example.com",
+      "phone": "087654321098",
+      "address": "Jl. Pahlawan No. 25"
+    },
+    {
+      "id": "3",
+      "name": "Agus Salim",
+      "email": "agus@example.com",
+      "phone": "085612345678",
+      "address": "Jl. Kemerdekaan No. 33"
+    }
+  ],
+  "borrowings": [
+    {
+      "id": "1",
+      "bookId": 2,
+      "memberId": 1,
+      "borrowDate": "2024-06-15",
+      "returnDate": null,
+      "status": "borrowed"
+    },
+    {
+      "id": "2",
+      "bookId": 1,
+      "memberId": 3,
+      "borrowDate": "2024-07-01",
+      "returnDate": null,
+      "status": "borrowed"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "password123",
+      "role": "admin"
+    }
+  ]
+}

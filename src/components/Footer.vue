@@ -1,18 +1,6 @@
 <template>
-  <footer class="footer">
-    <p>&copy; 2025 Library-M. ILHAM RAMADHANA. All rights reserved.</p>
-  </footer>
+  <v-footer app color="primary" dark padless> <v-col class="text-center white--text" cols="12">
+      &copy; {{ new Date().getFullYear() }} — <strong>Sistem Manajemen Perpustakaan</strong>
+    </v-col>
+  </v-footer>
 </template>
-
-<script setup>
-</script>
-
-<style scoped>
-.footer {
-  background-color: #f4f4f4;
-  padding: 10px 20px;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #555;
-}
-</style>
