@@ -11,11 +11,11 @@ export const useBookStore = defineStore('book', {
       this.loading = true;
       this.error = null;
       try {
-        const response = await fetch('http://localhost:3000/books');
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        this.books = await response.json();
+        const response = await fetch('https://6a00b46e36fb6ad04de06be3.mockapi.io/data/1');
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    
+        const result = await response.json();
+        this.books = result.books; 
       } catch (err) {
         this.error = 'Failed to fetch books: ' + err.message;
         console.error(err);
@@ -28,11 +28,11 @@ export const useBookStore = defineStore('book', {
       this.loading = true;
       this.error = null;
       try {
-        const response = await fetch(`http://localhost:3000/books/${id}`);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const book = await response.json();
+        const response = await fetch(`https://6a00b46e36fb6ad04de06be3.mockapi.io/data/1`);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        
+        const result = await response.json();
+        const book = result.books.find(b => b.id == id);
         return book;
       } catch (err) {
         this.error = 'Failed to fetch book: ' + err.message;
@@ -48,18 +48,9 @@ export const useBookStore = defineStore('book', {
       this.error = null;
       try {
         bookData.available = bookData.stock;
+        bookData.id = Date.now().toString(); 
 
-        const response = await fetch('http://localhost:3000/books', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(bookData),
-        });
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const newBook = await response.json();
+        this.books.push(bookData);
         return true;
       } catch (err) {
         this.error = 'Failed to add book: ' + err.message;
@@ -74,17 +65,10 @@ export const useBookStore = defineStore('book', {
       this.loading = true;
       this.error = null;
       try {
-        const response = await fetch(`http://localhost:3000/books/${id}`, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(bookData),
-        });
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+        const index = this.books.findIndex(b => b.id == id);
+        if (index !== -1) {
+          this.books[index] = { ...this.books[index], ...bookData };
         }
-        const updatedBook = await response.json();
         return true;
       } catch (err) {
         this.error = 'Failed to update book: ' + err.message;
@@ -99,12 +83,7 @@ export const useBookStore = defineStore('book', {
       this.loading = true;
       this.error = null;
       try {
-        const response = await fetch(`http://localhost:3000/books/${id}`, {
-          method: 'DELETE',
-        });
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        this.books = this.books.filter(b => b.id != id);
         return true;
       } catch (err) {
         this.error = 'Failed to delete book: ' + err.message;
@@ -113,6 +92,6 @@ export const useBookStore = defineStore('book', {
       } finally {
         this.loading = false;
       }
-    },
+    }
   },
 });

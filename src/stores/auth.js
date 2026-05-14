@@ -12,7 +12,7 @@ export const useAuthStore = defineStore('auth', {
   actions: {
     async login(username, password) {
       try {
-        const response = await fetch('http://localhost:3000/users');
+        const response = await fetch('https://6a00b46e36fb6ad04de06be3.mockapi.io/users');
         if (!response.ok) {
           throw new Error('Failed to fetch user data.');
         }

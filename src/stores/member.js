@@ -11,11 +11,11 @@ export const useMemberStore = defineStore('member', {
       this.loading = true;
       this.error = null;
       try {
-        const response = await fetch('http://localhost:3000/members');
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        this.members = await response.json();
+        const response = await fetch('https://6a00b46e36fb6ad04de06be3.mockapi.io/data/1');
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        
+        const result = await response.json();
+        this.members = result.members;
       } catch (err) {
         this.error = 'Failed to fetch members: ' + err.message;
         console.error(err);
@@ -28,12 +28,11 @@ export const useMemberStore = defineStore('member', {
       this.loading = true;
       this.error = null;
       try {
-        const response = await fetch(`http://localhost:3000/members/${id}`);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const member = await response.json();
-        return member;
+        const response = await fetch('https://6a00b46e36fb6ad04de06be3.mockapi.io/data/1');
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        
+        const result = await response.json();
+        return result.members.find(m => m.id == id);
       } catch (err) {
         this.error = 'Failed to fetch member: ' + err.message;
         console.error(err);
@@ -47,18 +46,8 @@ export const useMemberStore = defineStore('member', {
       this.loading = true;
       this.error = null;
       try {
-        const response = await fetch('http://localhost:3000/members', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(memberData),
-        });
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const newMember = await response.json();
-        this.members.push(newMember);
+        memberData.id = Date.now().toString(); 
+        this.members.push(memberData);
         return true;
       } catch (err) {
         this.error = 'Failed to add member: ' + err.message;
@@ -73,20 +62,9 @@ export const useMemberStore = defineStore('member', {
       this.loading = true;
       this.error = null;
       try {
-        const response = await fetch(`http://localhost:3000/members/${id}`, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(memberData),
-        });
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const updatedMember = await response.json();
-        const index = this.members.findIndex(member => member.id === id);
+        const index = this.members.findIndex(m => m.id == id);
         if (index !== -1) {
-          this.members[index] = updatedMember;
+          this.members[index] = { ...this.members[index], ...memberData };
         }
         return true;
       } catch (err) {
@@ -102,13 +80,7 @@ export const useMemberStore = defineStore('member', {
       this.loading = true;
       this.error = null;
       try {
-        const response = await fetch(`http://localhost:3000/members/${id}`, {
-          method: 'DELETE',
-        });
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        this.members = this.members.filter(member => member.id !== id);
+        this.members = this.members.filter(m => m.id != id);
         return true;
       } catch (err) {
         this.error = 'Failed to delete member: ' + err.message;
